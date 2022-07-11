@@ -7,7 +7,7 @@ RM			:= rm -rf
 SRCS_DIR	:= ./src
 OBJS_DIR 	:= ./obj
 
-SRCS		:= Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
+SRCS		:= Zombie.cpp main.cpp zombieHorde.cpp
 
 OBJS		:= $(SRCS:%.c=$(OBJS_DIR)/%.o)
 

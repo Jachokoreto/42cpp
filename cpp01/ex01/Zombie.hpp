@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 03:41:16 by jatan             #+#    #+#             */
-/*   Updated: 2022/07/11 17:12:41 by jatan            ###   ########.fr       */
+/*   Updated: 2022/07/11 18:17:18 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,23 @@
 using std::cout;
 using std::endl;
 using std::string;
+using std::cin;
 
 class Zombie
 {
   public:
 	void announce(void);
+	void setName(string name);
 
+	Zombie(void);
 	Zombie(string name);
 	Zombie(const Zombie &zombie);
 	~Zombie(void);
-	Zombie &operator=(const Zombie &zombie);
 
   private:
 	string _name;
 };
 
-	Zombie *newZombie(string name);
-	void randomChump(string name);
+	Zombie *zombieHorde(int n, string name);
 
 #endif
