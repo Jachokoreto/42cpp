@@ -22,6 +22,9 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	@mkdir -p $(OBJS_DIR)
 	@$(CC) -c $< -o $@
 
+t:	all
+	./$(NAME)
+
 clean:
 	@$(RM) $(OBJS_DIR)
 	@echo "$(RED)Removed.obj$(RESET)"

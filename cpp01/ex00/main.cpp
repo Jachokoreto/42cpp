@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 16:44:52 by jatan             #+#    #+#             */
-/*   Updated: 2022/07/11 17:02:54 by jatan            ###   ########.fr       */
+/*   Updated: 2022/07/11 17:18:17 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 int main(void)
 {
-	Zombie zPtr;
+	Zombie *zPtr;
 
-	zPtr = zPtr.newZombie("z1");
-	Zombie::randomChump();
+	zPtr = newZombie("Zombie");
+	zPtr->announce();
+	randomChump("random");
+	delete zPtr;
+	zPtr = NULL;
 	return (0);
 }
 
