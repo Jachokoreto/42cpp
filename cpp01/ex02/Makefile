@@ -7,7 +7,7 @@ RM			:= rm -rf
 SRCS_DIR	:= ./src
 OBJS_DIR 	:= ./obj
 
-SRCS		:= main.cpp
+SRCS		:= HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
 
 OBJS		:= $(SRCS:%.c=$(OBJS_DIR)/%.o)
 
