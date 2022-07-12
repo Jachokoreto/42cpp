@@ -1,4 +1,4 @@
-NAME	 	:= sed
+NAME	 	:= harl
 
 CC			:= c++ -Wall -Wextra -Werror -fsanitize=address -g3 -std=c++98
 
@@ -7,7 +7,7 @@ RM			:= rm -rf
 SRCS_DIR	:= ./src
 OBJS_DIR 	:= ./obj
 
-SRCS		:= main.cpp
+SRCS		:= main.cpp Harl.cpp
 
 OBJS		:= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
@@ -23,7 +23,14 @@ $(OBJS_DIR)/%.o: %.cpp
 	$(CC) -c $< -o $@
 
 t:	all
-	./$(NAME) test hello bye
+	@echo -n "$(GREEN)Runnning$(RESET)"
+	./$(NAME) DEBUG
+	@echo -n "\n$(GREEN)Runnning$(RESET)"
+	./$(NAME) INFO
+	@echo -n "\n$(GREEN)Runnning$(RESET)"
+	./$(NAME) WARNING
+	@echo -n "\n$(GREEN)Runnning$(RESET)"
+	./$(NAME) ERROR
 
 clean:
 	@$(RM) $(OBJS_DIR)
