@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:11:54 by jatan             #+#    #+#             */
-/*   Updated: 2022/07/13 17:18:35 by jatan            ###   ########.fr       */
+/*   Updated: 2022/07/13 21:12:44 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-const int Fixed::_fBits = 8;
+const int Fixed::_fracBits = 8;
 
 Fixed::Fixed(void) : _value(0)
 {
@@ -26,13 +26,13 @@ Fixed::Fixed(void) : _value(0)
 Fixed::Fixed(const int value)
 {
 	cout << "Int constructor called" << endl;
-	this->_value = value * ((2 << _fBits) / 2);
+	this->_value = value << _fracBits;
 }
 
 Fixed::Fixed(const float value)
 {
 	cout << "Float constructor called" << endl;
-	this->_value = value * ((2 << _fBits) / 2);
+	this->_value = roundf(value * (1 << _fracBits));
 }
 
 Fixed::Fixed(const Fixed &fixed)
@@ -87,19 +87,12 @@ ostream &operator<<(ostream &o, Fixed const &rhs)
 
 float Fixed::toFloat(void) const
 {
-	float ret;
-	int raw;
-
-	ret = 0.0f;
-	raw = this->getRawBits();
-
-	ret = (float)raw / ((2 << _fBits) / 2);
-	return (ret);
+	return ((float)this->getRawBits() / (1 << _fracBits));
 }
 
 int Fixed::toInt(void) const
 {
-	return (this->getRawBits() / ((2 << _fBits) / 2));
+	return (this->getRawBits() >> _fracBits);
 }
 
 /*

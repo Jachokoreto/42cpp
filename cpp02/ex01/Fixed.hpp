@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 14:56:36 by jatan             #+#    #+#             */
-/*   Updated: 2022/07/13 16:02:46 by jatan            ###   ########.fr       */
+/*   Updated: 2022/07/13 21:12:44 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 using std::cout;
 using std::endl;
@@ -39,7 +40,7 @@ class Fixed
 
   private:
 	int _value;
-	static const int _fBits;
+	static const int _fracBits;
 };
 
 ostream &operator<<(ostream &o, Fixed const &rhs);
