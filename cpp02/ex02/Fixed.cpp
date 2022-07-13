@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:11:54 by jatan             #+#    #+#             */
-/*   Updated: 2022/07/13 21:46:38 by jatan            ###   ########.fr       */
+/*   Updated: 2022/07/13 22:13:36 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,8 @@ Fixed Fixed::operator*(const Fixed &fixed)
 	res._value = (this->_value * fixed._value) >> _fracBits;
 	return (res);
 }
+
+// https://sestevenson.wordpress.com/fixed-point-division-of-two-q15-numbers/
 
 Fixed Fixed::operator/(const Fixed &fixed)
 {

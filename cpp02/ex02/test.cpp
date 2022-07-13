@@ -2,7 +2,7 @@
 
 void basic_unary_op_test(void)
 {
-	float bNum = 17.55f;
+	float bNum = 30017.55f;
 	float cNum = 3.5f;
 	Fixed a;
 
