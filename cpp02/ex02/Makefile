@@ -7,30 +7,34 @@ RM			:= rm -rf
 SRCS_DIR	:= ./src
 OBJS_DIR 	:= ./obj
 
-SRCS		:= Fixed.cpp main.cpp
+SRCS		:= Fixed.cpp
 
 OBJS		:= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
 
 all:	$(NAME)
 
-$(NAME): $(OBJS)
-		$(CC) $(OBJS) -o $@
+$(NAME): $(OBJS) main.cpp
+		$(CC) main.cpp $(OBJS) -o $@
 		@echo "$(GREEN)Compiled $@ successfully $(RESET)"
 
 $(OBJS_DIR)/%.o: %.cpp
 	mkdir -p $(OBJS_DIR)
 	$(CC) -c $< -o $@
 
-t:	all
+m:	all
 	./$(NAME)
+
+t:	$(OBJS)
+	$(CC) test.cpp $(OBJS) -o $@
+	./$@
 
 clean:
 	@$(RM) $(OBJS_DIR)
 	@echo "$(RED)Removed.obj$(RESET)"
 
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) t
 	@echo "$(RED)Removed $(NAME)$(RESET)"
 	
 re:		fclean all

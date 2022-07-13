@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 14:56:36 by jatan             #+#    #+#             */
-/*   Updated: 2022/07/13 21:12:44 by jatan            ###   ########.fr       */
+/*   Updated: 2022/07/13 22:07:05 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ class Fixed
 	void setRawbits(int const raw);
 
 	bool operator>(const Fixed &fixed);
-	bool operator<(const Fixed &fixed);
 	bool operator>=(const Fixed &fixed);
+	bool operator<(const Fixed &fixed);
 	bool operator<=(const Fixed &fixed);
 	bool operator==(const Fixed &fixed);
 	bool operator!=(const Fixed &fixed);

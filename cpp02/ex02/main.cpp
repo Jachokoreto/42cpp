@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 15:18:41 by jatan             #+#    #+#             */
-/*   Updated: 2022/07/13 21:11:07 by jatan            ###   ########.fr       */
+/*   Updated: 2022/07/13 21:46:25 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 int main(void)
 {
-	int bNum = 4;
-	float cNum = 2.0f;
+
 	Fixed a;
-	Fixed const b(Fixed(bNum) * Fixed(cNum));
+	Fixed const b(Fixed(5.05f) * Fixed(2));
 
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
@@ -28,13 +27,5 @@ int main(void)
 	std::cout << b << std::endl;
 	std::cout << Fixed::max(a, b) << std::endl;
 
-	a = Fixed(bNum) + Fixed(cNum);
-	std::cout << "Testing + : " << a << std::endl;
-	a = Fixed(bNum) - Fixed(cNum);
-	std::cout << "Testing - : " << a << std::endl;
-	a = Fixed(bNum) * Fixed(cNum);
-	std::cout << "Testing * : " << a << std::endl;
-	a = Fixed(bNum) / Fixed(cNum);
-	std::cout << "Testing / : " << a << std::endl;
 	return 0;
 }
