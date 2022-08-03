@@ -1,24 +1,27 @@
-#include "Point.hpp"
+#include "Animal.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Point::Point(void)
+const int Animal::_fracBits = 8;
+
+Animal::Animal(void) : _value(0)
 {
 	// cout << "Default constructor called" << endl;
 }
 
-Point::Point(const float x, const float y) : _x(x), _y(y)
+Animal::Animal(const Animal &Animal)
 {
 	// cout << "Copy constructor called" << endl;
+	this->_value = Animal.getRawBits();
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Point::~Point()
+Animal::~Animal()
 {
 	// cout << "Destructor called" << endl;
 }
@@ -27,12 +30,12 @@ Point::~Point()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Point &Point::operator=(Point const &rhs)
+Animal &Animal::operator=(Animal const &rhs)
 {
 	// cout << "Copy assignment operator called" << endl;
 	if (this != &rhs)
 	{
-		return new Point(rhs.getX(), rhs.getY());
+		this->_value = rhs.getRawBits();
 	}
 	return *this;
 }
@@ -45,16 +48,16 @@ Point &Point::operator=(Point const &rhs)
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-Fixed Point::getX(void) const
+void Animal::setRawbits(int const raw)
 {
-	// cout << "getX  member function called" << endl;
-	return (this->_x);
+	this->_value = raw;
+	// cout << "setRawBits member function called" << endl;
 }
 
-Fixed Point::getY(void) const
+int Animal::getRawBits(void) const
 {
-	// cout << "getY  member function called" << endl;
-	return (this->_y);
+	// cout << "getRawBits  member function called" << endl;
+	return (this->_value);
 }
 
 /* ************************************************************************** */
