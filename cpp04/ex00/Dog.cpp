@@ -1,20 +1,15 @@
- #include "Animal.hpp"
+#include "Dog.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal(): type("animal")
+Dog::Dog(): Animal("Dog")
 {
 }
 
-Animal::Animal(std::string type): type(type)
+Dog::Dog( const Dog & src ) : Animal(src)
 {
-}
-
-Animal::Animal( const Animal & src )
-{
-	type = src.getType();
 }
 
 
@@ -22,7 +17,7 @@ Animal::Animal( const Animal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+Dog::~Dog()
 {
 }
 
@@ -31,7 +26,7 @@ Animal::~Animal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &				Animal::operator=( Animal const & rhs )
+Dog &				Dog::operator=( Dog const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -40,7 +35,7 @@ Animal &				Animal::operator=( Animal const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
+std::ostream &			operator<<( std::ostream & o, Dog const & i )
 {
 	o << "Type = " << i.getType();
 	return o;
@@ -51,19 +46,14 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Animal::makeSound(void) const
+void Dog::makeSound(void) const
 {
-	std::cout << BLU "🐵 Ani\t: uwu ~ " RESET << std::endl;
+	std::cout << YLW "🐶 Dog\t: wan-wan ~" RESET << std::endl;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
-std::string Animal::getType() const
-{
-	return type;
-}
 
 
 /* ************************************************************************** */

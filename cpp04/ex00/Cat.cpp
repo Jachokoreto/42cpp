@@ -1,20 +1,15 @@
- #include "Animal.hpp"
+#include "Cat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal(): type("animal")
+Cat::Cat() : Animal("Cat")
 {
 }
 
-Animal::Animal(std::string type): type(type)
+Cat::Cat( const Cat & src ) : Animal(src)
 {
-}
-
-Animal::Animal( const Animal & src )
-{
-	type = src.getType();
 }
 
 
@@ -22,7 +17,7 @@ Animal::Animal( const Animal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+Cat::~Cat()
 {
 }
 
@@ -31,7 +26,7 @@ Animal::~Animal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &				Animal::operator=( Animal const & rhs )
+Cat &				Cat::operator=( Cat const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -40,7 +35,7 @@ Animal &				Animal::operator=( Animal const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
+std::ostream &			operator<<( std::ostream & o, Cat const & i )
 {
 	o << "Type = " << i.getType();
 	return o;
@@ -51,19 +46,14 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Animal::makeSound(void) const
+void Cat::makeSound(void) const
 {
-	std::cout << BLU "🐵 Ani\t: uwu ~ " RESET << std::endl;
+	std::cout << PNK "😺 Cat\t: nyan-nyan ~ " RESET << std::endl;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
-std::string Animal::getType() const
-{
-	return type;
-}
 
 
 /* ************************************************************************** */

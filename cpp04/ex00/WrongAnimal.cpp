@@ -1,18 +1,18 @@
- #include "Animal.hpp"
+ #include "WrongAnimal.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal(): type("animal")
+WrongAnimal::WrongAnimal(): type("WrongAnimal")
 {
 }
 
-Animal::Animal(std::string type): type(type)
+WrongAnimal::WrongAnimal(std::string type): type(type)
 {
 }
 
-Animal::Animal( const Animal & src )
+WrongAnimal::WrongAnimal( const WrongAnimal & src )
 {
 	type = src.getType();
 }
@@ -22,7 +22,7 @@ Animal::Animal( const Animal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
 }
 
@@ -31,7 +31,7 @@ Animal::~Animal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &				Animal::operator=( Animal const & rhs )
+WrongAnimal &				WrongAnimal::operator=( WrongAnimal const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -40,7 +40,7 @@ Animal &				Animal::operator=( Animal const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
+std::ostream &			operator<<( std::ostream & o, WrongAnimal const & i )
 {
 	o << "Type = " << i.getType();
 	return o;
@@ -51,16 +51,16 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Animal::makeSound(void) const
+void WrongAnimal::makeSound(void) const
 {
-	std::cout << BLU "🐵 Ani\t: uwu ~ " RESET << std::endl;
+	std::cout << BLU "WrongAnimal : Some WrongAnimal sound..." RESET << std::endl;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string Animal::getType() const
+std::string WrongAnimal::getType() const
 {
 	return type;
 }
