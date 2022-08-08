@@ -30,13 +30,15 @@ void test1(void)
 
 void test2(void)
 {
+	std::cout << std::endl << GRN "==== Test 2 ====" RESET << std::endl;
+
 	Animal a;
 	Cat c;
 	Animal *a2 = new Cat();
 
-	std::cout << std::endl << GRN "==== Test 2 ====" RESET << std::endl;
-
 	a = c;
+	std::cout << "a " << a << std::endl;
+	std::cout << "c " << c << std::endl;
 	a.makeSound();
 	c.makeSound();
 	a2->makeSound();

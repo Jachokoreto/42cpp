@@ -7,11 +7,11 @@ RM			:= rm -rf
 SRCS_DIR	:= ./src
 OBJS_DIR 	:= ./obj
 
-SRCS		:= Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS		:= Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Message.cpp
 
 OBJS		:= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
-INCLUDES	:= Animal.hpp Cat.hpp Dog.hpp
+INCLUDES	:= Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp Message.hpp
 
 
 all:	$(NAME)

@@ -5,6 +5,7 @@
 # include <string>
 
 #include "Animal.hpp"
+#include "Message.hpp"
 
 class Cat: public Animal
 {

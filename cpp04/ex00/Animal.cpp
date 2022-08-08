@@ -1,4 +1,4 @@
- #include "Animal.hpp"
+#include "Animal.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -6,14 +6,17 @@
 
 Animal::Animal(): type("animal")
 {
+	msg::constructor("Animal", "default");
 }
 
 Animal::Animal(std::string type): type(type)
 {
+	msg::constructor("Animal", "variable string = type");
 }
 
 Animal::Animal( const Animal & src )
 {
+	msg::constructor("Animal", "copy constructor");
 	type = src.getType();
 }
 
@@ -24,6 +27,7 @@ Animal::Animal( const Animal & src )
 
 Animal::~Animal()
 {
+	msg::destructor("Animal");
 }
 
 

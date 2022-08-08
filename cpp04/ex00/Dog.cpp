@@ -6,10 +6,12 @@
 
 Dog::Dog(): Animal("Dog")
 {
+	msg::constructor("Dog", "default");
 }
 
 Dog::Dog( const Dog & src ) : Animal(src)
 {
+	msg::constructor("Dog", "copy construtor");
 }
 
 
@@ -19,6 +21,7 @@ Dog::Dog( const Dog & src ) : Animal(src)
 
 Dog::~Dog()
 {
+	msg::destructor("Dog");
 }
 
 

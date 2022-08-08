@@ -4,11 +4,7 @@
 # include <iostream>
 # include <string>
 # include "styling.hpp"
-
-# ifndef DEBUG
-#  define DEBUG 0
-# endif
-
+# include "Message.hpp"
 
 class Animal
 {

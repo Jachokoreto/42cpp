@@ -6,10 +6,12 @@
 
 Cat::Cat() : Animal("Cat")
 {
+	msg::constructor("Cat", "default");
 }
 
 Cat::Cat( const Cat & src ) : Animal(src)
 {
+	msg::constructor("Cat", "copy constuctor");
 }
 
 
@@ -19,6 +21,7 @@ Cat::Cat( const Cat & src ) : Animal(src)
 
 Cat::~Cat()
 {
+	msg::destructor("Cat");
 }
 
 
