@@ -31,18 +31,19 @@ t:	$(OBJS) test.cpp $(INCLUDES)
 	$(CC) test.cpp $(OBJS) -o $@
 	@echo "$(GREEN)Compiled $@ successfully, running $@ $(RESET)"
 	./$@
+	@rm t
 
 clean:
 	@$(RM) $(OBJS_DIR)
 	@echo "$(RED)Removed.obj$(RESET)"
 
 fclean: clean
-	@$(RM) $(NAME) t
+	@$(RM) $(NAME)
 	@echo "$(RED)Removed $(NAME)$(RESET)"
 	
 re:		fclean all
 
-.PHONY: all run clean fclean t
+.PHONY: all run clean fclean
 
 # Colors are great!
 # Formats are greater!
