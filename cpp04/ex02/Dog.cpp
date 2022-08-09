@@ -4,20 +4,20 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog(): Animal("Dog")
+Dog::Dog(): AAnimal("Dog")
 {
 	msg::constructor("Dog", "default");
 	_brain = new Brain();
 }
 
-Dog::Dog( const Dog & src ) : Animal(src)
+Dog::Dog( const Dog & src ) : AAnimal(src)
 {
 	_brain = new Brain();
 	_brain->copyIdeas(*src._brain);
 	msg::constructor("Dog", "copy construtor");
 }
 
-Dog::Dog(std::string idea) : Animal("Dog")
+Dog::Dog(std::string idea) : AAnimal("Dog")
 {
 	_brain = new Brain();
 	_brain->setIdeas(idea);

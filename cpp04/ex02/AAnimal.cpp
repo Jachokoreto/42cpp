@@ -1,22 +1,22 @@
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal(): type("animal")
+AAnimal::AAnimal(): type("animal")
 {
-	msg::constructor("Animal", "default");
+	msg::constructor("AAnimal", "default");
 }
 
-Animal::Animal(std::string type): type(type)
+AAnimal::AAnimal(std::string type): type(type)
 {
-	msg::constructor("Animal", "variable string = type");
+	msg::constructor("AAnimal", "variable string = type");
 }
 
-Animal::Animal( const Animal & src )
+AAnimal::AAnimal( const AAnimal & src )
 {
-	msg::constructor("Animal", "copy constructor");
+	msg::constructor("AAnimal", "copy constructor");
 	type = src.getType();
 }
 
@@ -25,9 +25,9 @@ Animal::Animal( const Animal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-	msg::destructor("Animal");
+	msg::destructor("AAnimal");
 }
 
 
@@ -35,7 +35,7 @@ Animal::~Animal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &				Animal::operator=( Animal const & rhs )
+AAnimal &				AAnimal::operator=( AAnimal const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -44,7 +44,7 @@ Animal &				Animal::operator=( Animal const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
+std::ostream &			operator<<( std::ostream & o, AAnimal const & i )
 {
 	o << "Type = " << i.getType();
 	return o;
@@ -55,7 +55,7 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Animal::makeSound(void) const
+void AAnimal::makeSound(void) const
 {
 	std::cout << BLU "🐵 Ani\t: uwu ~ " RESET << std::endl;
 }
@@ -64,7 +64,7 @@ void Animal::makeSound(void) const
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string Animal::getType() const
+std::string AAnimal::getType() const
 {
 	return type;
 }

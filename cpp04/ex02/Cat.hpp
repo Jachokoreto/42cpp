@@ -4,11 +4,11 @@
 # include <iostream>
 # include <string>
 
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 # include "Brain.hpp"
 # include "Message.hpp"
 
-class Cat: public Animal
+class Cat: public AAnimal
 {
 
 	public:

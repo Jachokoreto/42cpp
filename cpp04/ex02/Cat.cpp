@@ -4,20 +4,20 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat() : Animal("Cat")
+Cat::Cat() : AAnimal("Cat")
 {
 	_brain = new Brain();
 	msg::constructor("Cat", "default");
 }
 
-Cat::Cat( const Cat & src ) : Animal(src)
+Cat::Cat( const Cat & src ) : AAnimal(src)
 {
 	_brain = new Brain();
 	_brain->copyIdeas(*src._brain);
 	msg::constructor("Cat", "copy constuctor");
 }
 
-Cat::Cat(std::string idea) : Animal("Cat")
+Cat::Cat(std::string idea) : AAnimal("Cat")
 {
 	_brain = new Brain();
 	_brain->setIdeas(idea);

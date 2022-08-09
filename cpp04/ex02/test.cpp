@@ -7,9 +7,9 @@
 void test1(void)
 {
 	std::cout << std::endl << GRN "==== Test 1 required by subject ====" << std::endl
-			  << "- Create 100 Animal, half Cat and half Dog" RESET << std::endl;
+			  << "- Create 100 AAnimal, half Cat and half Dog" RESET << std::endl;
 
-	Animal *animals[100];
+	AAnimal *animals[100];
 
 	for (int i = 0; i < 100; i++)
 	{
@@ -31,12 +31,12 @@ void test2(void)
 	std::cout << std::endl << GRN "==== Test 2 ====" << std::endl
 			  << "- Class init test" RESET << std::endl;
 
-	Animal a;
+	AAnimal a;
 	Cat c;
 	Dog d;
-	Animal *a2 = new Cat();
+	AAnimal *a2 = new Cat();
 
-	std::cout << "a is initialized as Animal class, then copy assign c to it" << std::endl;
+	std::cout << "a is initialized as AAnimal class, then copy assign c to it" << std::endl;
 	a = c;
 	std::cout << "a " << a << std::endl;
 
@@ -47,13 +47,13 @@ void test2(void)
 	std::cout << "c is initialized as Cat class" << std::endl;
 	std::cout << "c " << c << std::endl;
 	
-	std::cout << std::endl << "Although (a)'s type value is Dog, (a) is still Animal class, so it makes Animal sound" << std::endl;
+	std::cout << std::endl << "Although (a)'s type value is Dog, (a) is still AAnimal class, so it makes AAnimal sound" << std::endl;
 	a.makeSound();
 
 	std::cout << std::endl << "(c) is Cat class, so it makes Cat sound" << std::endl;
 	c.makeSound();
 
-	std::cout << std::endl << "(a2) is Animal class pointer pointing to a Cat class, so we can make it call Cat makeSound()" << std::endl;
+	std::cout << std::endl << "(a2) is AAnimal class pointer pointing to a Cat class, so we can make it call Cat makeSound()" << std::endl;
 	a2->makeSound();
 
 	delete(a2);
@@ -64,8 +64,8 @@ void test3(void)
 	std::cout << std::endl << GRN "==== Test 3 ====" << std::endl
 			  << "- Brain test" RESET << std::endl;
 
-	Animal *a;
-	Animal *b;
+	AAnimal *a;
+	AAnimal *b;
 	Cat c;
 
 	a = new Cat(c);

@@ -1,18 +1,20 @@
-# exo1 - Practice on deep copy and shallow copy
+# ex02 - Abstract class
 
-[Difference between Shallow and Deep copy](https://www.geeksforgeeks.org/difference-between-shallow-and-deep-copy-of-a-class/#:~:text=Deep%20copy%20stores%20copies%20of,the%20references%20to%20the%20objects.)
+### Facts :
 
-Key Points :
+1. A class is abstarct if it has at least 1 pure virtual function
+2. Can have pointers and references of abstract class type
+3. If we do not override pure virtual function in derived class, then derived class also become an abstract class
+4. An abstract class can also have contrustor
 
-Shallow copy
+### Virtual function
 
-- quicker as it is easy
-- simply copies over the pointer price
-- store reference to the original object
-- reflect changes made on the new/copy object in the original object
+```
+void someFunction(var i) = 0;
+```
 
-Deep copy:
+## Why use abstract class?
 
-- slower
-- clones the underlying data
-- does not reflect changes on the original object as it has no reference to it
+An abstract class cannot be instantiated. The purpose of an abstract class is to provide a common definition of a base class that multiple derived classes can share
+
+derived concrete class -> a derived class that has no virtual function and provide function definition for its inherited function
