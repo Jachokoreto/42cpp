@@ -2,7 +2,7 @@
 
 [Difference between Shallow and Deep copy](https://www.geeksforgeeks.org/difference-between-shallow-and-deep-copy-of-a-class/#:~:text=Deep%20copy%20stores%20copies%20of,the%20references%20to%20the%20objects.)
 
-Key Points :
+### Key Points :
 
 Shallow copy
 
@@ -16,3 +16,14 @@ Deep copy:
 - slower
 - clones the underlying data
 - does not reflect changes on the original object as it has no reference to it
+
+### Changes made:
+
+On Cat and Dog class :
+
+- Added brain class
+- Updated makeSound() to display `string idea` in brain
+
+On msg :
+
+- Added info()
