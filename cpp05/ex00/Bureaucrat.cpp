@@ -14,10 +14,8 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 			throw GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat & src )
-{
-	(void)src;
-}
+Bureaucrat::Bureaucrat( const Bureaucrat & src ): _name(src.getName()), _grade(src.getGrade()) {}
+
 
 
 /*
