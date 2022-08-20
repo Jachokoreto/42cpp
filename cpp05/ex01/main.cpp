@@ -65,21 +65,13 @@ void	test3(void)
 	std::cout << form << std::endl;
 	while(1)
 	{
-		try
-		{
-			msg::info("Try signing...");
-			std::cout << a;
-			a.signForm(form);
-			std::cout << a.getName() << " signed " << form.getName() << std::endl
-					  << form << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << RED "Caught exception: " RESET << e.what() << std::endl;
+		msg::info("Try signing...");
+		std::cout << a;
+		a.signForm(form);
+		if (form.getIsSigned() == true)
+			break;
+		else
 			a.gradeIncr();
-			continue;
-		}
-		break;
 	}
 
 }

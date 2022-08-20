@@ -5,6 +5,7 @@
 # include <iostream>
 # include <string>
 # include "Form.hpp"
+# include "jttool.hpp"
 
 class Form;
 

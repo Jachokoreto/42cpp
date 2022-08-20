@@ -66,7 +66,18 @@ void Bureaucrat::gradeIncr(void)
 
 void Bureaucrat::signForm(Form &form)
 {
-		form.beSigned(*this);
+		try
+		{
+			form.beSigned(*this);
+			std::cout << this->_name << " signed " << form.getName() << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << this->_name << " couldn't sign " << form.getName()
+					  << " beacause " << e.what() << std::endl;
+		}
+		
+
 }
 
 /*
