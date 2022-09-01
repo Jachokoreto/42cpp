@@ -1,6 +1,6 @@
 NAME	 	:= sed
 
-CC			:= c++ -Wall -Wextra -Werror -fsanitize=address -g3 -std=c++98
+CC			:= c++ -Wall -Wextra -Werror   -std=c++98
 
 RM			:= rm -rf
 
@@ -24,9 +24,13 @@ $(OBJS_DIR)/%.o: %.cpp
 
 t:	all
 	./$(NAME) test hello bye
+	@echo "\n$(BLUE)cat -e test $(RESET)"
+	@cat -e test 
+	@echo "\n\n$(BLUE)cat -e test.replace $(RESET)"
+	@cat -e test.replace
 
 clean:
-	@$(RM) $(OBJS_DIR)
+	@$(RM) $(OBJS_DIR) test.replace
 	@echo "$(RED)Removed.obj$(RESET)"
 
 fclean: clean

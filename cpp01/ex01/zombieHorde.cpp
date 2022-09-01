@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:32:11 by jatan             #+#    #+#             */
-/*   Updated: 2022/07/11 17:52:30 by jatan            ###   ########.fr       */
+/*   Updated: 2022/08/31 17:24:30 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ Zombie *zombieHorde(int n, string name)
 
 	for (int i = 0; i < n; i++)
 		zArray[i].setName(name);
+
 	return (zArray);
 }

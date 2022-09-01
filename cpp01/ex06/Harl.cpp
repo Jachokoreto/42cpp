@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 22:57:56 by jatan             #+#    #+#             */
-/*   Updated: 2022/07/12 10:23:10 by jatan            ###   ########.fr       */
+/*   Updated: 2022/09/01 15:15:32 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,16 @@ void	Harl::complain(string level)
 			&Harl::_warning,
 			&Harl::_error,
 		};
-	for (int i = 0; i < 4; i++)
+	switch (levelNum)
 	{
-		if (i >= levelNum)
-			(this->*t_fptr[i])();
+		case 0:
+			(this->*t_fptr[0])();
+		case 1:
+			(this->*t_fptr[1])();
+		case 2:
+			(this->*t_fptr[2])();
+		case 3:
+			(this->*t_fptr[3])();
 	}
 }
 

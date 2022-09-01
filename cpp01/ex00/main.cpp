@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 16:44:52 by jatan             #+#    #+#             */
-/*   Updated: 2022/07/11 17:18:17 by jatan            ###   ########.fr       */
+/*   Updated: 2022/08/31 17:17:36 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ int main(void)
 
 	zPtr = newZombie("Zombie");
 	zPtr->announce();
-	randomChump("random");
 	delete zPtr;
-	zPtr = NULL;
+
+	randomChump("random");
+
+
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 18:21:02 by jatan             #+#    #+#             */
-/*   Updated: 2022/07/11 18:31:43 by jatan            ###   ########.fr       */
+/*   Updated: 2022/08/31 17:30:46 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ int main(void)
 	string &sRef = str;
 
 	cout << "Printing memory address..." << endl
-		 << "Memory address of str : " << &str << endl
-		 << "Memory address of sPtr : " << &sPtr << endl
-		 << "Memory address of sRef : " << &sRef << endl << endl
-		 << "Printing value..." << endl
-		 << "Value of str : " << str << endl
-		 << "Value of sPtr : " << *sPtr << endl
-		 << "Value of sRef : " << sRef << endl;
+		 << "==== Get memory address of str ==== " << endl 
+		 << "Using variable\t\t: " << &str << endl
+		 << "Using pointer,[sPtr]\t: " << sPtr << endl
+		 << "Using reference,[&sRef]\t: " << &sRef << endl << endl
+
+		 << "=== Get str ====" << endl
+		 << "Using str\t\t: " << str << endl
+		 << "Using sPtr,[*sPtr]\t: " << *sPtr << endl
+		 << "Using sRef,[sRef]\t: " << sRef << endl;
 }

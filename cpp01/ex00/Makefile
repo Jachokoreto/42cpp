@@ -1,6 +1,6 @@
 NAME	 	:= zombie
 
-CC			:= c++ -Wall -Wextra -Werror -fsanitize=address -g3 -std=c++98
+CC			:= c++ -Wall -Wextra -Werror   -std=c++98
 
 RM			:= rm -rf
 

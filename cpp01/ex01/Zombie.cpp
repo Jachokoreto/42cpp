@@ -6,16 +6,13 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 15:59:46 by jatan             #+#    #+#             */
-/*   Updated: 2022/07/11 17:52:19 by jatan            ###   ########.fr       */
+/*   Updated: 2022/08/31 17:20:56 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(void)
-{
-	
-}
+Zombie::Zombie(void) {}
 
 Zombie::Zombie(string name)
 {

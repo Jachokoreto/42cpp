@@ -1,6 +1,6 @@
 NAME	 	:= harlFilter
 
-CC			:= c++ -Wall -Wextra -Werror -fsanitize=address -g3 -std=c++98
+CC			:= c++ -Wall -Wextra -Werror   -std=c++98
 
 RM			:= rm -rf
 
@@ -23,15 +23,15 @@ $(OBJS_DIR)/%.o: %.cpp
 	$(CC) -c $< -o $@
 
 t:	all
-	@echo -n "$(GREEN)Runnning$(RESET)"
+	@echo "$(GREEN)Runnning$(RESET)"
 	./$(NAME) DEBUG
-	@echo -n "\n$(GREEN)Runnning$(RESET)"
+	@echo "\n$(GREEN)Runnning$(RESET)"
 	./$(NAME) INFO
-	@echo -n "\n$(GREEN)Runnning$(RESET)"
+	@echo "\n$(GREEN)Runnning$(RESET)"
 	./$(NAME) WARNING
-	@echo -n "\n$(GREEN)Runnning$(RESET)"
+	@echo "\n$(GREEN)Runnning$(RESET)"
 	./$(NAME) ERROR
-	@echo -n "\n$(GREEN)Runnning$(RESET)"
+	@echo "\n$(GREEN)Runnning$(RESET)"
 	./$(NAME) random
 
 clean:
