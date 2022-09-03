@@ -1,4 +1,4 @@
-NAME	 	:= a.out
+NAME	 	:= fixed
 
 CC			:= c++ -Wall -Wextra -Werror -fsanitize=address -g3 -std=c++98
 
@@ -25,7 +25,8 @@ $(OBJS_DIR)/%.o: %.cpp
 m:	all
 	./$(NAME)
 
-t:	$(OBJS)
+t:	$(OBJS) all
+	./$(NAME)
 	$(CC) test.cpp $(OBJS) -o $@
 	./$@
 

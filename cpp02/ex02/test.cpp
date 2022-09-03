@@ -2,35 +2,35 @@
 
 void basic_unary_op_test(void)
 {
-	float bNum = 30017.55f;
+	float bNum = 42.22f;
 	float cNum = 3.5f;
 	Fixed a;
 
 	cout << "==== BASIC ARITHMETIC TESTS ===" << endl;
 	a = Fixed(bNum) + Fixed(cNum);
 	cout << ">> Testing +" << endl
-		 << (bNum) << " + " << cNum << " =" << endl
+		 << bNum << " + " << cNum << " =" << endl
 		 << "Fixed : " << a << endl
 		 << "Float : " << (bNum + cNum) << endl
 		 << endl;
 
 	a = Fixed(bNum) - Fixed(cNum);
 	cout << ">> Testing -" << endl
-		 << (bNum) << " - " << cNum << " =" << endl
+		 << bNum << " - " << cNum << " =" << endl
 		 << "Fixed : " << a << endl
 		 << "Float : " << (bNum - cNum) << endl
 		 << endl;
 
 	a = Fixed(bNum) * Fixed(cNum);
 	cout << ">> Testing *" << endl
-		 << (bNum) << " * " << cNum << " =" << endl
+		 << bNum << " * " << cNum << " =" << endl
 		 << "Fixed : " << a << endl
 		 << "Float : " << (bNum * cNum) << endl
 		 << endl;
 
 	a = Fixed(bNum) / Fixed(cNum);
 	cout << ">> Testing /" << endl
-		 << (bNum) << " / " << cNum << " =" << endl
+		 << bNum << " / " << cNum << " =" << endl
 		 << "Fixed : " << a << endl
 		 << "Float : " << (bNum / cNum) << endl
 		 << endl;
