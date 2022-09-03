@@ -1,4 +1,4 @@
-NAME	 	:= a.out
+NAME	 	:= fixed
 
 CC			:= c++ -Wall -Wextra -Werror -fsanitize=address -g3 -std=c++98
 

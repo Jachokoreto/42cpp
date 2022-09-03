@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 14:56:36 by jatan             #+#    #+#             */
-/*   Updated: 2022/07/13 21:12:44 by jatan            ###   ########.fr       */
+/*   Updated: 2022/09/04 04:53:19 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,21 @@ using std::cout;
 using std::endl;
 using std::string;
 
+/**
+ * Orthodox canonical form requires the followings 4 functions:
+ */
 class Fixed
 {
+public:
+	Fixed(void);						  // Default constructor
+	Fixed(const Fixed &fixed);			  // Copy constructor
+	Fixed &operator=(const Fixed &fixed); // Copy assignment constructor
+	~Fixed(void);						  // Destructor
 
-  public:
-	Fixed(void);
-	Fixed(const Fixed &fixed);
-	Fixed &operator=(const Fixed &fixed);
-	~Fixed(void);
+	int getRawBits(void) const;		// * accessors -> get
+	void setRawbits(int const raw); // * accessors -> set
 
-	int getRawBits(void) const;
-	void setRawbits(int const raw);
-
-  private:
+private:
 	int _value;
 	static const int _fracBits;
 };
