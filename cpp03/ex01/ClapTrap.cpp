@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ClapTrap::ClapTrap(void) : _hitPts(10), _energyPts(10)
+ClapTrap::ClapTrap(void) : _hitPts(10), _energyPts(10), _attackDmg(0)
 {
 	cout << "debug: ClapTrap::Default constructor called" << endl;
 }

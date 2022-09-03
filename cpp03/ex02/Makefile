@@ -22,12 +22,9 @@ $(OBJS_DIR)/%.o: %.cpp
 	mkdir -p $(OBJS_DIR)
 	$(CC) -c $< -o $@
 
-m:	all
+t:	all
 	./$(NAME)
 
-t:	$(OBJS)
-	$(CC) test.cpp $(OBJS) -o $@
-	./$@
 
 clean:
 	@$(RM) $(OBJS_DIR)

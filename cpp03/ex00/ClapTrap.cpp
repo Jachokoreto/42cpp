@@ -62,7 +62,7 @@ void ClapTrap::attack(const string &target)
 	else
 	{
 		cout << "ClapTrap " << this->_name
-			 << " attacks " << target
+			 << BLU " attacks " RESET << target
 			 << ", causing " << this->_attackDmg << " points of damage!" << endl;
 		this->_energyPts--;
 	}
@@ -73,7 +73,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if (this->_hitPts != 0 && amount <= this->_hitPts)
 	{
 		cout << "ClapTrap " << this->_name
-			 << " taken " << amount << " points of damage!"
+			 << BLU " taken " RESET << amount << " points of damage!"
 			 << "(hp :" << this->_hitPts << " -> " << this->_hitPts - amount << ")"
 			 << endl;
 		this->_hitPts -= amount;
@@ -89,7 +89,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	cout << "ClapTrap " << this->_name
-		 << " recovered " << amount << " hp!"
+		 << BLU " recovered " RESET << amount << " hp!"
 		 << "(hp :" << this->_hitPts << " -> " << this->_hitPts + amount << ")"
 		 << endl;
 	this->_hitPts += amount;

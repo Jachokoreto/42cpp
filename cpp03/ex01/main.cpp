@@ -13,25 +13,14 @@ int main(void)
 
 	cout << "[DEFAULT] will now attack M4RV1N 10 times. The 11th will fail due to no energy!" << endl;
 	cout << endl;
-
-	a.attack("M4RV1N");
-	a.attack("M4RV1N");
-	a.attack("M4RV1N");
-	a.attack("M4RV1N");
-	a.attack("M4RV1N");
-	a.attack("M4RV1N");
-	a.attack("M4RV1N");
-	a.attack("M4RV1N");
-	a.attack("M4RV1N");
-	a.attack("M4RV1N");
-
+	for (int i = 0; i < 10; i++)
+		a.attack("M4RV1N");
 	// This will fail
 	a.attack("M4RV1N");
-
 	cout << endl;
 	cout << endl;
 
-	cout << "Let's assume some fking EMP just destroyed this lil bro" << endl;
+	cout << "Let's assume some EMP just destroyed this lil bro" << endl;
 	c.takeDamage(1000);
 
 	// This should not take damage anymore
@@ -45,11 +34,7 @@ int main(void)
 	cout << "SCAVTRAP TESTS" << endl;
 	cout << endl;
 
-	ScavTrap dflt2;
 	ScavTrap pete("P3T3");
-	ScavTrap pete2(pete);
-	ScavTrap equal;
-
 	cout << "=================================" << endl;
 	cout << "Original P3T3" << endl;
 	cout << "Name: " << pete.getName() << endl;
@@ -57,9 +42,9 @@ int main(void)
 	cout << "Energy: " << pete.getEnergyPts() << endl;
 	cout << "Atk: " << pete.getAttackDmg() << endl;
 	cout << "=================================" << endl;
-
 	cout << endl;
 
+	ScavTrap pete2(pete);
 	cout << "=================================" << endl;
 	cout << "COPIED P3T3" << endl;
 	cout << "Name: " << pete2.getName() << endl;
@@ -74,6 +59,7 @@ int main(void)
 	pete2.attack("DONKEY");
 	pete2.attack("DONKEY");
 
+	ScavTrap equal;
 	cout << "=================================" << endl;
 	cout << "Default" << endl;
 	cout << "Name: " << equal.getName() << endl;

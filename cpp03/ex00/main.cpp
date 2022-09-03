@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 15:18:41 by jatan             #+#    #+#             */
-/*   Updated: 2022/07/15 13:41:25 by jatan            ###   ########.fr       */
+/*   Updated: 2022/09/04 05:20:46 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +30,12 @@ int main(void)
 
 	cout << endl
 		 << " == Testing BL1 energy points ==" << endl;
+	for (int i = 0; i < 8; i++)
+	{
+		ct1.attack("BL2");
+		ct2.takeDamage(ct1.getAttackDmg());
+	}
 	ct1.attack("BL2");
-	ct2.takeDamage(ct1.getAttackDmg());
-
-	ct1.attack("BL2");
-	ct2.takeDamage(ct1.getAttackDmg());
-
-	ct1.attack("BL2");
-	ct2.takeDamage(ct1.getAttackDmg());
-
-	ct1.attack("BL2");
-	ct2.takeDamage(ct1.getAttackDmg());
-
-	ct1.attack("BL2");
-	ct2.takeDamage(ct1.getAttackDmg());
-
-	ct1.attack("BL2");
-	ct2.takeDamage(ct1.getAttackDmg());
-
-	ct1.attack("BL2");
-	ct2.takeDamage(ct1.getAttackDmg());
-
-	ct1.attack("BL2");
-	ct2.takeDamage(ct1.getAttackDmg());
-
-	ct1.attack("BL2");
-
 	ct1.attack("BL2");
 
 	return 0;

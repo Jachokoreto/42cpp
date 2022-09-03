@@ -25,7 +25,7 @@ using std::string;
 class ClapTrap
 {
 
-  public:
+public:
 	ClapTrap(void);
 	ClapTrap(string name);
 	ClapTrap(const ClapTrap &rhs);
@@ -42,11 +42,23 @@ class ClapTrap
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 
-  private:
+private:
 	string _name;
 	unsigned int _hitPts;
 	unsigned int _energyPts;
 	unsigned int _attackDmg;
 };
+
+#define RED "\x1B[031m"
+#define ORG "\x1B[38;5;166m"
+#define YLW "\x1B[33m"
+#define GRN "\x1B[032m"
+#define BLU "\x1B[034m"
+#define IDG "\x1B[38;5;54m"
+#define VLT "\x1B[38;5;207m"
+#define PNK "\x1B[035m"
+#define TEL "\x1B[036m"
+#define WHT "\x1B[037m"
+#define RESET "\x1B[0m"
 
 #endif /* ********************************************************** ClapTrap_H */
