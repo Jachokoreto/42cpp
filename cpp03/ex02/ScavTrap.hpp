@@ -32,6 +32,7 @@ class ScavTrap : public ClapTrap
 	ScavTrap &operator=(const ScavTrap &ScavTrap);
 	~ScavTrap(void);
 
+	void attack(const string &target);
 	void guardGate(void);
 
   private:

@@ -47,6 +47,22 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &rhs)
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void ScavTrap::attack(const string &target)
+{
+	if (this->getHitPts() == 0)
+		cout << "ScavTrap " << this->getName() << " is dying..." << endl;
+	else if (this->getEnergyPts() == 0)
+		cout << "ScavTrap " << this->getName() << " is tired..." << endl;
+	else
+	{
+		cout << "ScavTrap " << this->getName()
+			 << " attacks " << target
+			 << ", causing " << this->getAttackDmg() << " points of damage!" << endl;
+		this->setEnergyPts(this->getEnergyPts() - 1);
+	}
+}
+
+
 void ScavTrap::guardGate(void)
 {
 	cout << this->getName() << " is now in Gate keeper mode" << endl;

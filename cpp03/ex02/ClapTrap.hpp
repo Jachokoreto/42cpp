@@ -36,6 +36,7 @@ class ClapTrap
 	string getName(void) const;
 	int getHitPts(void) const;
 	int getEnergyPts(void) const;
+	void setEnergyPts(int);
 
 	int getAttackDmg(void) const;
 	void setAttackDmg(unsigned int amount);

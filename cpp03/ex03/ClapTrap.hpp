@@ -34,6 +34,7 @@ class ClapTrap
 	~ClapTrap(void);
 
 	string getName(void) const;
+	void setName(string);
 	int getHitPts(void) const;
 	int getEnergyPts(void) const;
 	void setEnergyPts(int);

@@ -10,46 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ClapTrap_HPP
-#define ClapTrap_HPP
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
 
 #include <iostream>
 #include <string>
-#include <cmath>
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 using std::cout;
 using std::endl;
 using std::ostream;
 using std::string;
 
-class ClapTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 
   public:
-	ClapTrap(void);
-	ClapTrap(string name);
-	ClapTrap(string name, int hp, int ep, int ad);
-	ClapTrap(const ClapTrap &rhs);
-	ClapTrap &operator=(const ClapTrap &ClapTrap);
-	~ClapTrap(void);
-
-	string getName(void) const;
-	int getHitPts(void) const;
-	int getEnergyPts(void) const;
-	void setEnergyPts(int);
-
-	int getAttackDmg(void) const;
-	void setAttackDmg(unsigned int amount);
+	DiamondTrap(void);
+	DiamondTrap(string name);
+	DiamondTrap(const DiamondTrap &rhs);
+	DiamondTrap &operator=(const DiamondTrap &DiamondTrap);
+	~DiamondTrap(void);
 
 	void attack(const string &target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	void whoAmI(void);
 
   private:
-	string _name;
-	unsigned int _hitPts;
-	unsigned int _energyPts;
-	unsigned int _attackDmg;
+	string	_name;
 };
 
-#endif /* ********************************************************** ClapTrap_H */
+#endif /* ********************************************************** DiamondTrap_H */

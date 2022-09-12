@@ -10,46 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ClapTrap_HPP
-#define ClapTrap_HPP
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
 #include <iostream>
 #include <string>
-#include <cmath>
+#include "ClapTrap.hpp"
 
 using std::cout;
 using std::endl;
 using std::ostream;
 using std::string;
 
-class ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 
   public:
-	ClapTrap(void);
-	ClapTrap(string name);
-	ClapTrap(string name, int hp, int ep, int ad);
-	ClapTrap(const ClapTrap &rhs);
-	ClapTrap &operator=(const ClapTrap &ClapTrap);
-	~ClapTrap(void);
-
-	string getName(void) const;
-	int getHitPts(void) const;
-	int getEnergyPts(void) const;
-	void setEnergyPts(int);
-
-	int getAttackDmg(void) const;
-	void setAttackDmg(unsigned int amount);
+	ScavTrap(void);
+	ScavTrap(string name);
+	ScavTrap(const ScavTrap &rhs);
+	ScavTrap &operator=(const ScavTrap &ScavTrap);
+	~ScavTrap(void);
 
 	void attack(const string &target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	void guardGate(void);
 
   private:
-	string _name;
-	unsigned int _hitPts;
-	unsigned int _energyPts;
-	unsigned int _attackDmg;
 };
 
-#endif /* ********************************************************** ClapTrap_H */
+#endif /* ********************************************************** ScavTrap_H */

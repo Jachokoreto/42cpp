@@ -109,6 +109,12 @@ string ClapTrap::getName(void) const
 	return (this->_name);
 }
 
+void ClapTrap::setName(string name)
+{
+	this->_name = name;
+}
+
+
 int ClapTrap::getHitPts(void) const
 {
 	return (this->_hitPts);
