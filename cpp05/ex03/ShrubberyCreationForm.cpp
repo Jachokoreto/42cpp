@@ -4,21 +4,17 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::ShrubberyCreationForm():
-	AForm("Shruberry Creation Form", 145, 137), _target("unknown")
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shruberry Creation Form", 145, 137), _target("unknown")
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : 
-	AForm("Shruberry Creation Form", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shruberry Creation Form", 145, 137), _target(target)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src ) :
-	AForm(src), _target(src.getTarget())
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : AForm(src), _target(src.getTarget())
 {
 }
-
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -28,15 +24,14 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ShrubberyCreationForm &				ShrubberyCreationForm::operator=( ShrubberyCreationForm const & rhs )
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &rhs)
 {
 	(void)rhs;
-	if ( this != &rhs )
+	if (this != &rhs)
 	{
 		this->AForm::operator=(rhs);
 	}
@@ -45,11 +40,10 @@ ShrubberyCreationForm &				ShrubberyCreationForm::operator=( ShrubberyCreationFo
 
 // std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i )
 // {
-// 	o << (AForm &)i 
+// 	o << (AForm &)i
 // 	  << "Target: " << i.getTarget() << std::endl;
 // 	return o;
 // }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -69,7 +63,6 @@ void ShrubberyCreationForm::execute(Bureaucrat &b)
 	std::ifstream iFile("tree");
 	oFile << iFile.rdbuf();
 	std::cout << GRN "Planted a shrubbery at " << this->_target << RESET << std::endl;
-	
 }
 
 /*

@@ -1,6 +1,6 @@
-NAME	 	:= whatever
+NAME	 	:= array
 
-CC			:= c++ -Wall -Wextra -Werror -fsanitize=address -std=c++98
+CC			:= c++ -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 RM			:= rm -rf
 
@@ -9,16 +9,18 @@ OBJS_DIR 	:= ./obj
 
 SRCS		:= 
 
+DEPS		:= Array.hpp Array.tpp
+
 OBJS		:= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
-INCLUDES	:= -Ilibjttool -I.
+INCLUDES	:= -Ilibjttool -I. 
 
 LIB			:= -ljttool -Llibjttool
 
 
 all:	$(NAME)
 
-$(NAME): $(OBJS) main.cpp iter.hpp
+$(NAME): $(OBJS) main.cpp $(DEPS)
 		$(CC) main.cpp $(OBJS) $(INCLUDES) $(LIB) -o $@
 		@echo "$(GREEN)Compiled $@ successfully $(RESET)"
 

@@ -1,6 +1,6 @@
 NAME	 	:= libjttool.a
 
-CC			:= c++ -Wall -Wextra -Werror -fsanitize=address -std=c++98
+CC			:= c++ -Wall -Wextra -Werror -std=c++98
 
 RM			:= rm -rf
 
