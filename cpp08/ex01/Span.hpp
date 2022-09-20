@@ -7,7 +7,7 @@
 
 class Span
 {
-  public:
+public:
 	Span(unsigned int n);
 	Span(const Span &rhs);
 	~Span(void);
@@ -18,7 +18,7 @@ class Span
 	int shortestSpan(void);
 	int longestSpan(void);
 
-  private:
+private:
 	unsigned int _maxNum;
 };
 
