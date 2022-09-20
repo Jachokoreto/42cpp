@@ -48,16 +48,4 @@ Pizza &Pizza::operator=(Pizza const &rhs)
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-void Pizza::setRawbits(int const raw)
-{
-	this->_value = raw;
-	// cout << "setRawBits member function called" << endl;
-}
-
-int Pizza::getRawBits(void) const
-{
-	// cout << "getRawBits  member function called" << endl;
-	return (this->_value);
-}
-
 /* ************************************************************************** */

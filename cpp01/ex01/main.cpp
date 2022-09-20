@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 16:44:52 by jatan             #+#    #+#             */
-/*   Updated: 2022/08/31 17:24:31 by jatan            ###   ########.fr       */
+/*   Updated: 2022/09/18 23:39:53 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 int main(void)
 {
 	Zombie *zArr;
-	int		num = 3;
-	string	name = "Walker";
-
-
+	int num = 3;
+	string name = "Walker";
 
 	zArr = zombieHorde(num, name);
 
@@ -28,7 +26,7 @@ int main(void)
 		zArr[i].announce();
 	}
 
-	delete [] zArr;
+	delete[] zArr;
 	return (0);
 }
 
