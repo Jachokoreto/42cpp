@@ -1,41 +1,40 @@
 #ifndef CHARACTER_HPP
-# define CHARACTER_HPP
+#define CHARACTER_HPP
 
-# include <iostream>
-# include <string>
+#include <iostream>
+#include <string>
 
-# include "ICharacter.hpp"
+#include "ICharacter.hpp"
 
-# define MAX_SLOT 4
+#define MAX_SLOT 4
 
-class Character: public ICharacter
+class Character : public ICharacter
 {
-	public:
-		// Constructors
-		Character(std::string _name);
-		Character(const Character &copy);
-		
-		// Destructor
-		~Character();
-		
-		// Operators
-		Character & operator=(const Character &assign);
-		
-		// Getters / Setters
-		std::string &getName() const;
+  public:
+	// Constructors
+	Character(std::string _name);
+	Character(const Character &copy);
 
-		// Methods
-		void equip(AMateria *m);
-		void unequip(int idx);
-		void use(int idx, ICharacter &target);
-		
-	private:
-		std::string &_name;
-		AMateria *_inventory[MAX_SLOT];
-		
+	// Destructor
+	~Character();
+
+	// Operators
+	Character &operator=(const Character &assign);
+
+	// Getters / Setters
+	std::string const &getName() const;
+
+	// Methods
+	void equip(AMateria *m);
+	void unequip(int idx);
+	void use(int idx, ICharacter &target);
+
+  private:
+	std::string _name;
+	AMateria *_inventory[MAX_SLOT];
 };
 
 // Stream operators
-std::ostream & operator<<(std::ostream &stream, const Character &object);
+std::ostream &operator<<(std::ostream &stream, const Character &object);
 
 #endif

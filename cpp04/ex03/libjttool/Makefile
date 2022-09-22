@@ -1,4 +1,4 @@
-NAME	 	:= finalFantasy
+NAME	 	:= libjttool.a
 
 CC			:= c++ -Wall -Wextra -Werror -std=c++98
 
@@ -7,35 +7,22 @@ RM			:= rm -rf
 SRCS_DIR	:= ./src
 OBJS_DIR 	:= ./obj
 
-SRCS		:= AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
-
-DEPS		:= AMateria.hpp Character.hpp Cure.hpp ICharacter.hpp IMateriaSource.hpp Ice.hpp MateriaSource.hpp
+SRCS		:= Message.cpp 
 
 OBJS		:= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
-INCLUDES	:= -Ilibjttool -I. 
-
-LIB			:= -ljttool -Llibjttool
+INCLUDES	:= Message.hpp styling.hpp
 
 
 all:	$(NAME)
 
-$(NAME): $(OBJS) main.cpp $(DEPS)
-		$(CC) main.cpp $(OBJS) $(INCLUDES) $(LIB) -o $@
+$(NAME): $(OBJS) $(INCLUDES)
+		ar -rcs $@ $(OBJS)
 		@echo "$(GREEN)Compiled $@ successfully $(RESET)"
 
 $(OBJS_DIR)/%.o: %.cpp
 	mkdir -p $(OBJS_DIR)
-	$(CC) -c $< $(INCLUDES) -o $@
-
-m:	all
-	./$(NAME)
-
-t:	$(OBJS) test.cpp
-	$(CC) test.cpp $(OBJS) -o $@
-	@echo "$(GREEN)Compiled $@ successfully, running $@ $(RESET)"
-	./$@
-	@rm t
+	$(CC) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJS_DIR)

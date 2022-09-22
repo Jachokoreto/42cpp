@@ -19,21 +19,18 @@ AMateria::AMateria(std::string type)
 	std::cout << "\e[0;33mFields Constructor called of AMateria\e[0m" << std::endl;
 }
 
-
 // Destructor
 AMateria::~AMateria()
 {
 	std::cout << "\e[0;31mDestructor called of AMateria\e[0m" << std::endl;
 }
 
-
 // Operators
-AMateria & AMateria::operator=(const AMateria &assign)
+AMateria &AMateria::operator=(const AMateria &assign)
 {
 	_type = assign.getType();
 	return *this;
 }
-
 
 // Getters / Setters
 std::string AMateria::getType() const
@@ -41,5 +38,8 @@ std::string AMateria::getType() const
 	return _type;
 }
 
-
 // Methods
+void AMateria::use(ICharacter &target)
+{
+	(void)target;
+}
