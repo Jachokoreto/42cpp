@@ -6,7 +6,7 @@ Cure::Cure() : AMateria("cure")
 	std::cout << "\e[0;33mDefault Constructor called of Cure\e[0m" << std::endl;
 }
 
-Cure::Cure(const Cure &copy)
+Cure::Cure(const Cure &copy): AMateria(copy)
 {
 	(void)copy;
 	std::cout << "\e[0;33mCopy Constructor called of Cure\e[0m" << std::endl;
@@ -21,7 +21,8 @@ Cure::~Cure()
 // Operators
 Cure &Cure::operator=(const Cure &assign)
 {
-	(void)assign;
+	// (void)assign;
+	AMateria::operator=(assign);
 	return *this;
 }
 

@@ -6,7 +6,7 @@ Ice::Ice() : AMateria("ice")
 	std::cout << "\e[0;33mDefault Constructor called of Ice\e[0m" << std::endl;
 }
 
-Ice::Ice(const Ice &copy)
+Ice::Ice(const Ice &copy): AMateria(copy)
 {
 	(void)copy;
 	std::cout << "\e[0;33mCopy Constructor called of Ice\e[0m" << std::endl;
@@ -21,7 +21,9 @@ Ice::~Ice()
 // Operators
 Ice &Ice::operator=(const Ice &assign)
 {
-	(void)assign;
+	// (void) assign;
+	AMateria::operator=(assign);
+
 	return *this;
 }
 
