@@ -49,6 +49,7 @@ std::string const &Character::getName() const
 	return _name;
 }
 
+
 // Stream operators
 std::ostream &operator<<(std::ostream &stream, const Character &object)
 {
@@ -61,15 +62,14 @@ void Character::equip(AMateria *m)
 {
 	int idx;
 
-	msg::info("Character -- Equip");
+	msg::info("Character -- Equip : " + this->_name);
 	idx = 0;
 	while (this->_inventory[idx] != NULL)
 		idx++;
 	if (idx != MAX_SLOT)
 	{
 		_inventory[idx] = m;
-		std::cout
-			<< BLU << this->_name << " equiped " << m->getType() << " in slot " << idx << std::endl;
+		std::cout << this->_name << " equiped " << m->getType() << " in slot " << idx << std::endl;
 	}
 	else
 		std::cout << "Inventory is full for " << this->_name << std::endl;
@@ -77,7 +77,7 @@ void Character::equip(AMateria *m)
 
 void Character::unequip(int idx)
 {
-	msg::info("Character -- Unequip");
+	msg::info("Character -- Unequip : " + this->_name);
 	if (_inventory[idx] != NULL)
 	{
 		std::cout << this->_name << " unequiped " << _inventory[idx]->getType() << " from slot " << idx << std::endl;
@@ -90,7 +90,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-	msg::info("Character -- Use");
+	msg::info("Character -- Use : " + this->_name);
 	if (_inventory[idx] != NULL)
 		_inventory[idx]->use(target);
 	else
