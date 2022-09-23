@@ -55,12 +55,13 @@ void test2(void)
 	delete src;
 	delete cloud;
 	delete tifa;
+	delete blob;
 
 }
 
 void test3(void)
 {
-	msg::annouceTest("Test 2", "to test equip and unequip");
+	msg::annouceTest("Test 3", "to test equip and unequip");
 	IMateriaSource *src = new MateriaSource();
 	src->learnMateria(new Ice());
 
@@ -79,11 +80,38 @@ void test3(void)
 
 }
 
+void test4(void)
+{
+	msg::annouceTest("Test 4", "to test deep copy");
+	IMateriaSource *src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+
+	ICharacter *cloud = new Character("Cloud");
+	ICharacter *cloudCopy = new Character("cloudCopy");
+
+	
+	cloud->equip(src->createMateria("ice"));
+
+	cloudCopy->equip(src->createMateria("cure"));
+	cloudCopy->use(0, *cloud);
+
+	msg::info("*cloudCopy = *cloud");
+	*cloudCopy = *cloud;
+
+	cloudCopy->use(0, *cloud);
+
+	delete cloud;
+	delete cloudCopy;
+	delete src;
+}
+
 int main()
 {
-	test1();
-	test2();
-	test3();
+	// test1();
+	// test2();
+	// test3();
+	test4();
 	// system("leaks finalFantasy"); 
 	return 0;
 }

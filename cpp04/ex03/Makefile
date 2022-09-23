@@ -1,6 +1,6 @@
 NAME	 	:= finalFantasy
 
-CC			:= c++ -Wall -Wextra -Werror -std=c++98
+CC			:= c++ -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 RM			:= rm -rf
 

@@ -40,6 +40,7 @@ Character &Character::operator=(const Character &assign)
 				this->_inventory[i] = assign._inventory[i]->clone();
 		}
 	}
+	std::cout << "\e[0;33mCopy Assignment called of Character\e[0m" << std::endl;
 	return *this;
 }
 
