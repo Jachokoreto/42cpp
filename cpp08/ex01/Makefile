@@ -1,4 +1,4 @@
-NAME	 	:= easyfind
+NAME	 	:= span
 
 CC			:= c++ -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
@@ -7,9 +7,9 @@ RM			:= rm -rf
 SRCS_DIR	:= ./src
 OBJS_DIR 	:= ./obj
 
-SRCS		:= 
+SRCS		:= Span.cpp
 
-DEPS		:= easyfind.hpp 
+DEPS		:= Span.hpp
 
 OBJS		:= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 

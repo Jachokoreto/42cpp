@@ -1,57 +1,90 @@
 #include "Span.hpp"
+#include <algorithm>
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
-
-Span::Span(unsigned int n) : _maxNum(n)
+// Constructors
+Span::Span(unsigned int n): _maxNum(n)
 {
 }
 
-Span::Span(const Span &rhs)
+Span::Span(const Span &copy)
 {
-	*this = rhs;
+	*this = copy;
 }
 
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
 
+// Destructor
 Span::~Span()
 {
 }
 
-/*
-** --------------------------------- OVERLOAD ---------------------------------
-*/
 
-Span &Span::operator=(Span const &rhs)
+// Operators
+Span & Span::operator=(const Span &assign)
 {
-	// cout << "Copy assignment operator called" << endl;
-	if (this != &rhs)
-	{
-		this->_maxNum = rhs._maxNum;
-	}
+	this->_element = assign._element;
 	return *this;
 }
 
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
-void addNumber(int n){
+void Span::addNumber(int n)
+{
+	if (_element.size() < _maxNum)
+		_element.push_back(n);
+}
 
-};
+void Span::addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last)
+{
+	std::vector<int>::iterator it = first;
 
-int shortestSpan(void){
+	while (it != last)
+	{
+		_element.push_back(*it);
+		it++;
+	}
+}
 
-};
+void Span::addNumber(size_t n, int val)
+{
+	for (int i = 0; i < n; i++)
+	{
+		_element.push_back(val);
+	}
+}
 
-int longestSpan(void){
 
-};
+int Span::shortestSpan(void)
+{
+	if (_element.size() < 2)
+		throw NoSpanException();
 
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
+	int smallest;
+	std::vector<int> sorted(_element);
+	std::vector<int>::iterator it;
 
-/* ************************************************************************** */
+	smallest = UINT32_MAX;
+	sort(sorted.begin(), sorted.end());
+	
+	while (it + 1 != sorted.end())
+	{
+		if ((*it + 1) - *it < smallest)
+			smallest = (*it + 1) - *it;
+		it++;
+	}
+	return (smallest);
+}
+
+int Span::longestSpan(void)
+{
+	if (_element.size() < 2)
+		throw NoSpanException();
+
+	std::vector<int>::iterator first = _element.begin();
+	std::vector<int>::iterator last = _element.end();
+
+	return (*std::max_element(first, last) - *std::min_element(first, last));
+}
+
+const char *Span::NoSpanException::what() const throw()
+{
+	return ("No span found");
+}
+
