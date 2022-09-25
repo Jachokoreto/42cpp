@@ -2,7 +2,7 @@
 #include <algorithm>
 
 // Constructors
-Span::Span(unsigned int n): _maxNum(n)
+Span::Span(unsigned int n) : _maxNum(n)
 {
 }
 
@@ -11,15 +11,13 @@ Span::Span(const Span &copy)
 	*this = copy;
 }
 
-
 // Destructor
 Span::~Span()
 {
 }
 
-
 // Operators
-Span & Span::operator=(const Span &assign)
+Span &Span::operator=(const Span &assign)
 {
 	this->_element = assign._element;
 	return *this;
@@ -44,12 +42,11 @@ void Span::addNumber(std::vector<int>::iterator first, std::vector<int>::iterato
 
 void Span::addNumber(size_t n, int val)
 {
-	for (int i = 0; i < n; i++)
-	{
+	if (_element.size() + n > _maxNum)
+		throw ExceedLimitException();
+	for (size_t i = 0; i < n; i++)
 		_element.push_back(val);
-	}
 }
-
 
 int Span::shortestSpan(void)
 {
@@ -60,13 +57,14 @@ int Span::shortestSpan(void)
 	std::vector<int> sorted(_element);
 	std::vector<int>::iterator it;
 
-	smallest = UINT32_MAX;
+	smallest = INT32_MAX;
 	sort(sorted.begin(), sorted.end());
-	
+
+	it = sorted.begin();
 	while (it + 1 != sorted.end())
 	{
-		if ((*it + 1) - *it < smallest)
-			smallest = (*it + 1) - *it;
+		if (*(it + 1) != *it && *(it + 1) - *it < smallest)
+			smallest = *(it + 1) - *it;
 		it++;
 	}
 	return (smallest);
@@ -83,8 +81,24 @@ int Span::longestSpan(void)
 	return (*std::max_element(first, last) - *std::min_element(first, last));
 }
 
+void Span::display(void)
+{
+	std::vector<int>::iterator it = _element.begin();
+
+	while (it != _element.end())
+	{
+		std::cout << *it << " ";
+		it++;
+	}
+	std::cout << std::endl;
+}
+
 const char *Span::NoSpanException::what() const throw()
 {
 	return ("No span found");
 }
 
+const char *Span::ExceedLimitException::what() const throw()
+{
+	return ("Exceed limit");
+}

@@ -1,85 +1,120 @@
-#include <string>
-#include <iostream>
-#include <vector>
-#include <deque>
-#include <list>
-#include "easyfind.hpp"
+#include "Span.hpp"
 #include "jttool.hpp"
 #include <cstdlib>
+#include <algorithm>
 
-/**
- * Need to testWithInt
- **/
-
-template <class T>
-void fillContainer(T &cont, unsigned int size)
+void test1(void)
 {
-    for (unsigned int i = 1; i < size + 1; i++)
-        cont.push_back(i);
-};
-
-template <class T>
-void showContainer(T &cont)
-{
-    typename T::iterator it;
-
-    it = cont.begin();
-    while (it != cont.end())
-        std::cout << *it++ << " ";
-    std::cout << '\n';
+    Span sp = Span(5);
+    sp.addNumber(6);
+    sp.addNumber(3);
+    sp.addNumber(17);
+    sp.addNumber(9);
+    sp.addNumber(11);
+    std::cout << "Shortest: " << sp.shortestSpan() << std::endl;
+    std::cout << "Longest: " << sp.longestSpan() << std::endl;
 }
 
-template <class T>
-void testContainer(T &cont)
+void randNum(std::vector<int>::iterator &a)
 {
-    typename T::iterator it;
+    std::cout << *a << std::endl;
+}
 
-    int toFind;
-    fillContainer(cont, 15);
-    showContainer(cont);
-    for (int i = 0; i < 5; i++)
+void test2(void)
+{
+    msg::annouceTest("test 2", "test add number using range operator");
+
+    std::vector<int> vec;
+    for (int i = 0; i < 10; i++)
+    {
+        vec.push_back(rand() % 1000);
+        std::cout << *(vec.end() - 1) << " ";
+    }
+    msg::info("Copy vector to span using range iterator");
+    Span sp(10);
+
+    sp.addNumber(vec.begin(), vec.end());
+    sp.display();
+    std::cout << "Shortest: " << sp.shortestSpan() << std::endl;
+    std::cout << "Longest: " << sp.longestSpan() << std::endl;
+}
+
+void test3(void)
+{
+    msg::annouceTest("test3", "test add number using fill");
+
+    Span sp(1500);
+    while (1)
     {
         try
         {
-            toFind = rand() % 20;
-            it = easyfind(cont, toFind);
-            std::cout << GRN "Element " << *it << " found! \n" RESET;
+            sp.addNumber(rand() % 100, rand() % 100);
         }
-        catch (NoOccuranceException::exception &e)
+        catch (const std::exception &e)
         {
-            std::cerr << RED "Trying to find " << toFind << ": " << e.what() << RESET "\n";
+            std::cerr << e.what() << '\n';
+            break;
         }
     }
-};
+    sp.display();
+
+    std::cout << "Shortest: " << sp.shortestSpan() << std::endl;
+    std::cout << "Longest: " << sp.longestSpan() << std::endl;
+}
+
+void test4(void)
+{
+    msg::annouceTest("test4", "test big number");
+
+    Span sp(10000);
+    for (int i = 0; i < 10000; i++)
+    {
+        sp.addNumber(rand() % 10000000);
+    }
+    sp.display();
+
+    std::cout << "Shortest: " << sp.shortestSpan() << std::endl;
+    std::cout << "Longest: " << sp.longestSpan() << std::endl;
+}
+
+void test5(void)
+{
+    msg::annouceTest("test5", "exception test");
+
+    Span sp(5);
+
+    while (1)
+    {
+        try
+        {
+            std::cout << "Shortest: " << sp.shortestSpan() << std::endl;
+        }
+        catch (const std::exception &e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+
+        try
+        {
+            std::cout << "Longest: " << sp.longestSpan() << std::endl;
+            break;
+        }
+        catch (const std::exception &e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+        sp.addNumber(rand() % 100);
+        sp.display();
+    }
+}
 
 int main(void)
 {
-    srand(time(0));
+    srand(time(NULL));
 
-    msg::annouceTest("Testing vector", "one of the sequence container");
-    std::vector<int> vec1;
-    testContainer(vec1);
-    vec1.push_back(rand() % 50);
-    vec1.push_back(rand() % 50);
-    vec1.push_back(rand() % 50);
-    showContainer(vec1);
-
-    // https://www.geeksforgeeks.org/deque-cpp-stl/?ref=rp
-    msg::annouceTest("Testing deque", "one of the sequence container");
-    std::deque<int> deq1;
-    testContainer(deq1);
-    deq1.push_front(rand() % 50);
-    deq1.push_front(rand() % 50);
-    deq1.push_front(rand() % 50);
-    showContainer(deq1);
-
-    // https://www.geeksforgeeks.org/list-cpp-stl/?ref=rp
-    msg::annouceTest("Testing list", "one of the sequence container");
-    std::list<int> meww;
-    testContainer(meww);
-    meww.reverse();
-    showContainer(meww);
-
-    // system("leaks array");
-    return (0);
+    test1();
+    test2();
+    test3();
+    test4();
+    test5();
 }
