@@ -7,17 +7,17 @@
 void convertChar(std::string s, t_vars &v)
 {
 	v.c = s[0];
-	v.i = static_cast<int>(v.c);
-	v.f = static_cast<float>(v.c);
-	v.d = static_cast<double>(v.c);
+	v.i = v.c;
+	v.f = v.c;
+	v.d = v.c;
 }
 
 void convertInt(std::string s, t_vars &v)
 {
-	v.i = atoi(s.c_str());
+	v.i = atof(s.c_str());
 	v.c = static_cast<char>(v.i);
-	v.f = static_cast<float>(v.i);
-	v.d = static_cast<double>(v.i);
+	v.f = v.i;
+	v.d = v.i;
 }
 
 void convertFloat(std::string s, t_vars &v)
@@ -25,7 +25,7 @@ void convertFloat(std::string s, t_vars &v)
 	v.f = atof(s.c_str());
 	v.c = static_cast<char>(v.f);
 	v.i = static_cast<int>(v.f);
-	v.d = static_cast<double>(v.f);
+	v.d = v.f;
 }
 
 void convertDouble(std::string s, t_vars &v)
@@ -38,7 +38,7 @@ void convertDouble(std::string s, t_vars &v)
 
 void printResults(t_vars &v)
 {
-	if (isprint(v.c) != 0 && v.d < CHAR_MAX)
+	if (isprint(v.c) != 0 && v.d < CHAR_MAX && v.d > CHAR_MIN)
 		std::cout << "char : '" << v.c << "'" << std::endl; // show message if not displayable 
 	else if (v.d > CHAR_MAX || v.d < CHAR_MIN)
 		std::cout << "char : impossible" << std::endl; 

@@ -27,47 +27,56 @@ Base *generate(void)
 void identify(Base *p)
 {
 	Base *ptr;
-	std::cout << "Identify with pointer\t";
+	std::cout << "Identify with pointer\n";
 	ptr = dynamic_cast<A*>(p);
 	if (ptr != NULL)
-		std::cout << "its A " << p << std::endl;
+		std::cout << GRN "its A " RESET << ptr << std::endl;
+	else
+		std::cout << "its not A! " << std::endl;
 	ptr = dynamic_cast<B*>(p);
 	if (ptr != NULL)
-		std::cout << "its B " << p << std::endl;
+		std::cout << GRN "its B " RESET << ptr << std::endl;
+	else
+		std::cout << "its not B! " << std::endl;
 	ptr = dynamic_cast<C*>(p);
 	if (ptr != NULL)
-		std::cout << "its C " << p << std::endl;
+		std::cout << GRN "its C " RESET << ptr << std::endl;
+	else
+		std::cout << "its not C! " << std::endl;
 
 }
 
 void identify(Base &p)
 {
-	std::cout << "Identify with reference\t";
+	std::cout << "\nIdentify with reference\n";
 	try
 	{
 		A &a = dynamic_cast<A &>(p);
-		std::cout << "its A " << &a << std::endl;
+		std::cout << GRN "its A " RESET << &a << std::endl;
 	}
 	catch(const std::exception& e)
 	{
+		std::cout << "its not A " << std::endl;
 		// std::cerr << e.what() << '\n';
 	}
 	try
 	{
 		B &a = dynamic_cast<B &>(p);
-		std::cout << "its B " << &a << std::endl;
+		std::cout << GRN "its B " RESET << &a << std::endl;
 	}
 	catch(const std::exception& e)
 	{
+		std::cout << "its not B " << std::endl;
 		// std::cerr << e.what() << '\n';
 	}
 	try
 	{
 		C &a = dynamic_cast<C &>(p);
-		std::cout << "its C " << &a << std::endl;
+		std::cout << GRN "its C " RESET << &a << std::endl;
 	}
 	catch(const std::exception& e)
 	{
+		std::cout << "its not C " << std::endl;
 		// std::cerr << e.what() << '\n';
 	}
 }
@@ -80,7 +89,7 @@ int main(void)
 
 	for (int i = 0; i < 10; i++)
 	{
-		msg::info("Generating...");
+		msg::info("Generating class...");
 		base = generate();
 		identify(base);
 		identify(*base);
