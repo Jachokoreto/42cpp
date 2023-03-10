@@ -25,6 +25,7 @@ void displayArray(Array<T> &array, std::string name)
 
 void testWithInt(void)
 {
+    msg::annouceTest("testWithInt", "");
     msg::info("Initialize variable with default value");
     int *a = new int();
     std::cout << "Value of pointer a: " << *a << std::endl;
@@ -38,8 +39,9 @@ void testWithInt(void)
     displayArray(a2, "a2");
 
     msg::info("Set a2[5~9] to value 111");
-    for (int i = 5; i < 10; i++)
+    for (unsigned int i = 5; i < a2.size(); i++)
         a2[i] = 111;
+
     msg::info("Initialize a new array(a3) and assign old array(a2) to it");
     Array<int> a3;
     a3 = a2;
@@ -64,6 +66,7 @@ void testWithInt(void)
 
 void testWithStr(void)
 {
+    msg::annouceTest("testWithStr", "");
     msg::info("Init string array with no size and display");
     Array<std::string> a1;
     displayArray(a1, "a1");
@@ -79,6 +82,7 @@ void testWithStr(void)
 
 void testWithFloat(void)
 {
+    msg::annouceTest("testWithFloat", "");
     msg::info("Init float array");
     Array<double> a1(5);
 
@@ -88,6 +92,7 @@ void testWithFloat(void)
 
 void moreTests(void)
 {
+    msg::annouceTest("moreTests", "");
     msg::info("Init int Array with size of 10 and try index thats out of bound");
     Array<int> a1(10);
     int i;

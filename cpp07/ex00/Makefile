@@ -18,9 +18,12 @@ LIB			:= -ljttool -Llibjttool
 
 all:	$(NAME)
 
-$(NAME): $(OBJS) main.cpp whatever.hpp
-		$(CC) main.cpp $(OBJS) $(INCLUDES) $(LIB) -o $@
-		@echo "$(GREEN)Compiled $@ successfully $(RESET)"
+$(NAME): $(OBJS) main.cpp libjttool/libjttool.a whatever.hpp
+	$(CC) main.cpp $(OBJS) $(INCLUDES) $(LIB) -o $@
+	@echo "$(GREEN)Compiled $@ successfully $(RESET)"
+
+libjttool/libjttool.a:
+	@make -C libjttool
 
 $(OBJS_DIR)/%.o: %.cpp
 	mkdir -p $(OBJS_DIR)

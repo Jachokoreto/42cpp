@@ -30,8 +30,8 @@ template <class T>
 Array<T> &Array<T>::operator=(Array const &rhs)
 {
 	int len = rhs.size();
-	if (_elements != NULL)
-		delete this->_elements;
+	if (this->_elements != NULL)
+		delete[] this->_elements;
 	this->_size = len;
 	this->_elements = new T[len];
 	while (--len >= 0)
@@ -42,7 +42,7 @@ Array<T> &Array<T>::operator=(Array const &rhs)
 template <class T>
 T &Array<T>::operator[](unsigned long index)
 {
-	if (index < 0 || index >= _size)
+	if (index >= _size)
 		throw std::exception();
 	return _elements[index];
 }

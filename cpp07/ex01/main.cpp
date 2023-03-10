@@ -4,11 +4,6 @@
 #include "jttool.hpp"
 
 
-// template <class T>
-// void read(int t)
-// {
-// 	std::cout << t << std::endl;
-// }
 
 int main(void)
 {
@@ -19,6 +14,7 @@ int main(void)
 	iter(num, 6,  read);
 	iter(c, 4,  read);
 	iter(str, 3, read);
+	return 0;
 
 }
 

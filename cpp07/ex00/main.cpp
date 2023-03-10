@@ -3,6 +3,7 @@
 #include "whatever.hpp"
 #include "jttool.hpp"
 
+
 int main(void)
 {
 	int a = 10;

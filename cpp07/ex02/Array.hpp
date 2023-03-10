@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <jttool.hpp>
 template <class T>
 class Array
 {
