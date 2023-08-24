@@ -48,6 +48,17 @@ BitcoinExchange::~BitcoinExchange()
 {
 }
 
+namespace util
+{
+    int stoi(std::string str)
+    {
+        std::stringstream ss(str);
+        int val;
+        ss >> val;
+        return val;
+    }
+} // namespace util
+
 void BitcoinExchange::readFileToEvaluate(std::string filename)
 {
     // read filename file
@@ -119,13 +130,13 @@ std::string BitcoinExchange::getDate(std::string date)
     if (isNumeric(tokens[0]) == 1 || tokens[0].length() != 4)
         throw std::runtime_error("invalid year.");
     // check month
-    toCheck = std::stoi(tokens[1]);
+    toCheck = util::stoi(tokens[1]);
     if (isNumeric(tokens[1]) == 1 || tokens[1].length() != 2 || toCheck < 1 || toCheck > 12)
     {
         throw std::runtime_error("invalid month");
     }
     // check day
-    toCheck = std::stoi(tokens[2]);
+    toCheck = util::stoi(tokens[2]);
     if (isNumeric(tokens[2]) == 1 || tokens[2].length() != 2 || toCheck < 1 || toCheck > 31)
         throw std::runtime_error("invalid day.");
     return date;
