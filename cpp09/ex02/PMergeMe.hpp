@@ -32,12 +32,12 @@ private:
     void insertionSortDeque(std::deque<int> &arr, int left, int right);
     void mergeDeque(std::deque<int> &arr, int left, int mid, int right);
     void mergeInsertionSortDeque(std::deque<int> &arr, int left, int right);
-    double sortInDeque(std::string expression);
+    double sortInDeque();
 
     void insertionSortList(std::list<int> &arr);
     void mergeList(std::list<int> &arr, std::list<int> &left, std::list<int> &right);
     void mergeInsertionSortList(std::list<int> &arr);
-    double sortInList(std::string expression);
+    double sortInList();
 
     int stoi(std::string str);
     int checkSorting();
