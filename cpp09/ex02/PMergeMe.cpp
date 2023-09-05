@@ -169,7 +169,7 @@ void PMergeMe::mergeList(std::list<int> &arr, std::list<int> &left, std::list<in
     std::list<int>::iterator leftIt = left.begin();
     std::list<int>::iterator rightIt = right.begin();
 
-    while (leftIt != left.begin() && rightIt != right.end())
+    while (leftIt != left.end() && rightIt != right.end())
     {
         if (*leftIt <= *rightIt)
         {
@@ -182,6 +182,8 @@ void PMergeMe::mergeList(std::list<int> &arr, std::list<int> &left, std::list<in
             ++rightIt;
         }
     }
+    temp.insert(temp.end(), leftIt, left.end());
+    temp.insert(temp.end(), rightIt, right.end());
 
     arr = temp;
 }
