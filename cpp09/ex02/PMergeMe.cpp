@@ -7,7 +7,15 @@ PMergeMe::PMergeMe()
 PMergeMe::~PMergeMe()
 {
 }
-
+void printList(std::list<int> &list)
+{
+    for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
+    {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl
+              << std::endl;
+}
 const int INSERTION_SORT_THRESHOLD = 10; // Threshold for using insertion sort
 
 // Insertion sort algorithm
