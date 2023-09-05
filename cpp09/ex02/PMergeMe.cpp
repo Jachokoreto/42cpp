@@ -86,16 +86,9 @@ void PMergeMe::mergeInsertionSortDeque(std::deque<int> &arr, int left, int right
     }
 }
 
-double PMergeMe::sortInDeque(std::string expression)
+double PMergeMe::sortInDeque()
 {
-    std::stringstream ss(expression);
-    std::string token;
     clock_t start, end;
-
-    while (std::getline(ss, token, ' '))
-    {
-        _deque.push_back(stoi(token));
-    }
 
     start = clock();
     mergeInsertionSortDeque(_deque, 0, _deque.size() - 1);
@@ -103,44 +96,8 @@ double PMergeMe::sortInDeque(std::string expression)
 
     double timeTaken = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 
-    // for (int i = 0; i < _deque.size(); ++i)
-    // {
-    //     std::cout << _deque[i] << " ";
-    // }
-
     return timeTaken;
 }
-
-// void PMergeMe::insertionSortList(std::list<int> &arr, int left, int right)
-// {
-//     std::list<int>::iterator i = arr.begin();
-//     std::advance(i, left);
-//     std::list<int>::iterator j = i;
-//     std::advance(j, 1);
-
-//     while (i != arr.end())
-//     {
-//         std::list<int>::iterator key = i;
-//         std::advance(key, 1);
-//         std::list<int>::iterator k = i;
-//         std::advance(k, -1);
-
-//         while (k != arr.begin() && *k > *key)
-//         {
-//             std::advance(k, -1);
-//         }
-
-//         if (*k > *key)
-//         {
-//             arr.insert(k, *key);
-//             j = arr.erase(key);
-//         }
-//         else
-//         {
-//             ++j;
-//         }
-//     }
-// }
 
 // do insertion sort with std::list
 void PMergeMe::insertionSortList(std::list<int> &arr)
@@ -149,10 +106,7 @@ void PMergeMe::insertionSortList(std::list<int> &arr)
 
     while (key != arr.end())
     {
-        // std::list<int>::iterator key = it;
-        // std::advance(key, 1);
         std::list<int>::iterator i = key;
-        // std::advance(k, -1);
 
         while (--i != --(arr.begin()) && *i > *key)
             ;
@@ -182,6 +136,7 @@ void PMergeMe::mergeList(std::list<int> &arr, std::list<int> &left, std::list<in
             ++rightIt;
         }
     }
+
     temp.insert(temp.end(), leftIt, left.end());
     temp.insert(temp.end(), rightIt, right.end());
 
@@ -204,28 +159,17 @@ void PMergeMe::mergeInsertionSortList(std::list<int> &arr)
         left.splice(left.begin(), arr, arr.begin(), mid);
         right.splice(right.begin(), arr, mid, arr.end());
 
-        // Recursively sort the two halves
-        // left = mergeInsertionSort(left);
-        // right = mergeInsertionSort(right);
         mergeInsertionSortList(left);
         mergeInsertionSortList(right);
 
-        // Merge the sorted halves
-        // arr = merge(left, right);
         mergeList(arr, left, right);
     }
 }
 
-double PMergeMe::sortInList(std::string expression)
+double PMergeMe::sortInList()
 {
-    std::stringstream ss(expression);
-    std::string token;
-    clock_t start, end;
 
-    while (std::getline(ss, token, ' '))
-    {
-        _list.push_back(stoi(token));
-    }
+    clock_t start, end;
 
     start = clock();
     mergeInsertionSortList(_list);
@@ -247,22 +191,33 @@ int PMergeMe::stoi(std::string str)
 void PMergeMe::run(char **argv)
 {
     double timeDeque, timeList;
+    std::string token;
 
-    std::string toSort = joinString(argv);
+    std::stringstream toSort(joinString(argv));
 
-    timeDeque = sortInDeque(toSort);
-    timeList = sortInList(toSort);
+    while (std::getline(toSort, token, ' '))
+    {
+        if (token == "")
+            continue;
+        _deque.push_back(stoi(token));
+        _list.push_back(stoi(token));
+    }
+
+    timeDeque = sortInDeque();
+    timeList = sortInList();
 
     try
     {
         checkSorting();
-        std::cout << "Before: " << toSort << std::endl;
+        std::cout << "Before: " << toSort.str() << std::endl
+                  << std::endl;
         std::cout << "After: ";
-        for (std::deque<int>::iterator i = _deque.begin(); i != _deque.end(); ++i)
+        for (std::list<int>::iterator i = _list.begin(); i != _list.end(); ++i)
         {
             std::cout << *i << " ";
         }
-        std::cout << std::endl;
+        std::cout << std::endl
+                  << std::endl;
 
         std::cout.precision(6);
         std::cout.width(10);
